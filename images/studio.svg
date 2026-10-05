@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
-  <rect width="1200" height="900" fill="#efe3d4"/>
-  <rect x="24" y="24" width="1152" height="852" fill="none" stroke="#c9a88f" stroke-width="3" stroke-dasharray="14 10" rx="18"/>
-  <g font-family="Noto Sans KR, sans-serif" text-anchor="middle" fill="#8f4a2b">
-    <text x="600.0" y="420.0" font-size="50" font-weight="700">공방 내부</text>
-    <text x="600.0" y="495.0" font-size="30" fill="#7a6a5f">작업실 전체 · 그릇 선반</text>
-    <text x="600.0" y="555.0" font-size="25" fill="#a8968a">사진 자리 · studio · 1200×900</text>
-  </g>
-</svg>
