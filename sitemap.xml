@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 검색엔진에 알려 주는 홈페이지 페이지 목록. 내용을 크게 고치면 lastmod 날짜를 고친 날로 바꿔 주세요 -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://pottery-studio-site-mu.vercel.app/</loc>
+    <lastmod>2026-10-05</lastmod>
+  </url>
+</urlset>
