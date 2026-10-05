@@ -25,6 +25,7 @@
 |---|---|---|
 | `hero-wide` / `hero-mobile` | 흙 묻은 두 손이 물레 위 컵을 세우는 장면 | 16:9 / 4:5 |
 | `class-handbuilding` · `class-couple` · `class-wheel` | 클래스별 완성품 | 4:3 |
+| `class-painting` | 도자기 페인팅 클래스 완성품 (아직 자리표시 이미지) | 4:3 |
 | `moment-couple` · `moment-solo` · `moment-friends` | 커플 · 혼자 온 손님 · 친구들 (얼굴이 나오면 촬영 동의 필수) | 1:1 |
 | `step-1` ~ `step-6` | 도착 · 시범 · 만들기 · 꾸미기 · 기념 사진 · 완성 그릇 | 1:1 |
 | `work-1` ~ `work-6` | 손님 작품 | 1:1 |
