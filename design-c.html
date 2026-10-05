@@ -1,0 +1,829 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>흙담 공방 · 망원동 원데이 도자기 클래스</title>
+  <meta name="description" content="망원역 7분, 흙담 공방의 원데이 도자기 클래스. 처음이어도 두 시간이면 나만의 컵이 완성돼요. 평일 저녁반(화–금 19:30)과 커플 클래스 운영, 예약금 없이 카카오톡으로 예약하세요.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="흙담 공방 · 퇴근 후 두 시간, 손으로 빚는 나만의 컵">
+  <meta property="og:description" content="망원역 7분 원데이 도자기 클래스. 평일 저녁반 · 커플 클래스 · 재료와 굽는 비용 포함.">
+  <!-- TODO: 대표 사진(1200×630 JPG)을 images/og-image.jpg로 넣고 아래 주석을 풀어 주세요 -->
+  <!-- <meta property="og:image" content="images/og-image.jpg"> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gothic+A1:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <!-- 시안 C · 인스타그램 감성, 과감하게 — 디자인 비교용 시안입니다. 내용은 index.html과 같고 스타일만 다릅니다. -->
+  <style>
+    /* ==========================================================
+       시안 C · 인스타그램 감성, 과감하게
+       선셋 그라데이션 · 굵은 검정 테두리 · 스티커 라벨 · 피드형 그리드
+       ========================================================== */
+    :root {
+      --ink: #151214;         /* 글자·테두리 */
+      --cream: #fff6ee;
+      --peach: #ffe6d8;
+      --pink: #e1306c;        /* 메인 포인트 */
+      --orange: #f77737;
+      --purple: #833ab4;
+      --yellow: #ffd23f;
+      --lilac: #e9dcff;
+      --muted: #5d5358;
+      --gradient: linear-gradient(45deg, #fcaf45 0%, #f77737 25%, #e1306c 55%, #c13584 75%, #833ab4 100%);
+      --radius: 22px;
+      --border: 2.5px solid var(--ink);
+      --pop: 5px 5px 0 var(--ink);
+      --header-h: 66px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: var(--header-h); }
+
+    body {
+      margin: 0;
+      font-family: "Gothic A1", system-ui, -apple-system, sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--ink);
+      background: var(--cream);
+      word-break: keep-all;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    h1, h2, h3, .logo {
+      font-family: "Black Han Sans", sans-serif;
+      font-weight: 400;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      margin: 0 0 0.5em;
+    }
+    h1 { font-size: clamp(2.4rem, 8vw, 4.4rem); }
+    h2 { font-size: clamp(1.9rem, 6vw, 3rem); }
+    h3 { font-size: 1.35rem; }
+    p { margin: 0 0 1em; }
+    a { color: var(--pink); }
+    strong { font-weight: 800; }
+    img { display: block; max-width: 100%; height: auto; }
+
+    .container { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+    .container-narrow { max-width: 780px; }
+
+    /* ---------- 버튼 ---------- */
+    .btn {
+      display: inline-block;
+      padding: 0.8em 1.6em;
+      border-radius: 999px;
+      border: var(--border);
+      font-weight: 800;
+      text-decoration: none;
+      color: var(--ink);
+      background: #fff;
+      box-shadow: 4px 4px 0 var(--ink);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .btn:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--ink); }
+    .btn-primary { background: var(--gradient); color: #fff; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25); }
+    .btn-ghost { background: #fff; color: var(--ink); }
+    .btn-small { padding: 0.5em 1.2em; font-size: 0.92rem; background: var(--yellow); }
+    .btn-block { display: block; text-align: center; }
+    .btn-large { padding: 1em 2.4em; font-size: 1.15rem; }
+
+    /* ---------- 헤더 ---------- */
+    .site-header { position: sticky; top: 0; z-index: 10; background: var(--cream); border-bottom: var(--border); }
+    .header-inner { height: var(--header-h); display: flex; align-items: center; justify-content: space-between; }
+    .logo {
+      margin: 0;
+      font-size: 1.5rem;
+      color: var(--ink);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo::before {   /* 스토리 링 모양 프로필 */
+      content: "";
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--cream) 0 52%, transparent 53%), var(--gradient);
+      border: 2px solid var(--ink);
+    }
+    .site-nav { display: flex; gap: 26px; align-items: center; }
+    .site-nav a { color: var(--ink); text-decoration: none; font-size: 0.95rem; font-weight: 700; }
+    .site-nav a:hover { color: var(--pink); }
+    .site-nav .nav-cta { padding: 0.4em 1.1em; border-radius: 999px; border: 2px solid var(--ink); background: var(--yellow); color: var(--ink); box-shadow: 3px 3px 0 var(--ink); }
+    .site-nav .nav-cta:hover { color: var(--ink); background: #fff; }
+
+    .nav-toggle { display: none; width: 44px; height: 44px; padding: 10px; border: 0; background: none; cursor: pointer; }
+    .nav-toggle span { display: block; height: 3px; margin: 5px 0; background: var(--ink); border-radius: 3px; }
+
+    /* ---------- 히어로 ---------- */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 88% 12%, rgba(225, 48, 108, 0.55), transparent 38%),
+        radial-gradient(circle at 70% 95%, rgba(131, 58, 180, 0.55), transparent 40%),
+        radial-gradient(circle at 0% 40%, rgba(247, 119, 55, 0.35), transparent 35%),
+        var(--ink);
+      color: #fff;
+      padding: clamp(56px, 10vw, 120px) 0;
+      border-bottom: var(--border);
+    }
+    .hero-inner { display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px; align-items: center; }
+    .hero h1 { font-size: clamp(2.3rem, 5.2vw, 3.7rem); margin-top: 0.5em; }
+    .hero h1 { color: #fff; }
+    .hero-photo { position: relative; }
+    .hero-photo img {
+      width: 100%;
+      border: 3px solid #fff;
+      border-radius: var(--radius);
+      transform: rotate(2.5deg);
+      box-shadow: 10px 10px 0 var(--yellow);
+    }
+    .hero-photo::after {   /* 스티커 */
+      content: "✦";
+      position: absolute;
+      top: -20px; left: -16px;
+      display: grid; place-items: center;
+      width: 58px; height: 58px;
+      background: var(--yellow);
+      color: var(--ink);
+      border: 2px solid var(--ink);
+      border-radius: 50%;
+      font-size: 1.6rem;
+      transform: rotate(-8deg);
+    }
+    .eyebrow {
+      display: inline-block;
+      padding: 0.3em 1em;
+      border-radius: 999px;
+      background: #fff;
+      color: var(--ink);
+      font-weight: 800;
+      font-size: 0.9rem;
+      transform: rotate(-2deg);
+    }
+    .hero-lead { font-size: 1.1rem; color: rgba(255, 255, 255, 0.82); max-width: 30em; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+    .hero .btn { border-color: #fff; box-shadow: 4px 4px 0 #fff; }
+    .hero .btn:hover { box-shadow: 2px 2px 0 #fff; }
+    .hero .btn-ghost { background: transparent; color: #fff; }
+    .hero-facts { margin: 22px 0 0; font-size: 0.9rem; color: var(--yellow); font-weight: 700; }
+
+    /* ---------- 공통 섹션 ---------- */
+    .section { padding: clamp(64px, 10vw, 110px) 0; border-bottom: var(--border); }
+    .section-tinted { background: var(--peach); }
+    #works.section-tinted { background: var(--lilac); }
+    #location.section-tinted { background: var(--yellow); }
+    .section-label {
+      display: inline-block;
+      padding: 0.25em 0.95em;
+      margin-bottom: 1em;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      background: var(--ink);
+      color: var(--yellow);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transform: rotate(-2deg);
+    }
+    .section-label::before { content: "# "; }
+    .section-intro { color: var(--muted); max-width: 40em; margin-bottom: 36px; font-size: 1.05rem; }
+
+    /* ---------- 이런 하루를 보내요 ---------- */
+    .moment-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 32px; }
+    .moment-card { background: #fff; border: var(--border); border-radius: var(--radius); padding: 12px 12px 20px; box-shadow: var(--pop); }
+    .moment-card:nth-child(1) { transform: rotate(-1.5deg); }
+    .moment-card:nth-child(3) { transform: rotate(1.5deg); }
+    .moment-card img {
+      width: 100%;
+      padding: 4px;
+      border-radius: 16px;
+      background: var(--gradient);   /* 스토리 링 */
+      margin-bottom: 14px;
+    }
+    .moment-card h3 { margin: 0 4px 0.3em; }
+    .moment-card p { color: var(--muted); font-size: 0.95rem; margin: 0 4px; }
+
+    /* ---------- 클래스 ---------- */
+    .class-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: start; }
+    .class-card { background: #fff; border: var(--border); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; box-shadow: var(--pop); height: 100%; }
+    .class-card-featured { background: var(--ink); color: #fff; box-shadow: 8px 8px 0 var(--pink); transform: translateY(-12px); }
+    .class-card-featured .class-desc, .class-card-featured .class-meta dt, .class-card-featured .class-price-note { color: rgba(255, 255, 255, 0.72); }
+    .class-card-featured .class-price { color: var(--yellow); }
+    .class-card-featured .class-meta { border-color: rgba(255, 255, 255, 0.3); }
+    .class-photo { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-bottom: var(--border); }
+    .class-body { padding: 22px; display: flex; flex-direction: column; flex: 1; }
+    .class-tag {
+      align-self: flex-start;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: #fff;
+      background: var(--pink);
+      border: 2px solid var(--ink);
+      padding: 0.15em 0.85em;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+    .class-card-featured .class-tag { background: var(--yellow); color: var(--ink); }
+    .class-desc { color: var(--muted); font-size: 0.95rem; }
+    .class-meta { margin: 0 0 20px; border-top: 2px dashed var(--ink); padding-top: 14px; }
+    .class-meta div { display: flex; justify-content: space-between; font-size: 0.92rem; padding: 3px 0; }
+    .class-meta dt { color: var(--muted); }
+    .class-meta dd { margin: 0; font-weight: 800; }
+    .class-price { margin: auto 0 16px; font-family: "Black Han Sans", sans-serif; font-size: 1.7rem; color: var(--pink); }
+    .class-price-note { margin: -12px 0 16px; font-size: 0.88rem; color: var(--muted); }
+    .class-guide { margin: 40px auto 0; max-width: 42em; text-align: center; font-weight: 700; background: #fff; border: var(--border); border-radius: 999px; padding: 14px 24px; }
+
+    /* ---------- 진행 방식 ---------- */
+    .step-list {
+      list-style: none;
+      margin: 32px 0 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px 24px;
+      counter-reset: step;
+    }
+    .step-list li { position: relative; display: flex; flex-direction: column; gap: 4px; counter-increment: step; }
+    .step-list img { width: 100%; border: var(--border); border-radius: var(--radius); margin-bottom: 12px; }
+    .step-list li::before {
+      content: counter(step, decimal-leading-zero);
+      position: absolute;
+      top: -14px; left: -10px;
+      padding: 0 0.35em;
+      font-family: "Black Han Sans", sans-serif;
+      font-size: 2.6rem;
+      line-height: 1;
+      color: var(--yellow);
+      -webkit-text-stroke: 2px var(--ink);
+    }
+    .step-list strong { font-size: 1.15rem; font-weight: 800; }
+    .step-list span { font-size: 0.93rem; color: var(--muted); line-height: 1.55; }
+    .step-note {
+      margin: 48px auto 0;
+      width: fit-content;
+      max-width: 100%;
+      text-align: center;
+      font-family: "Black Han Sans", sans-serif;
+      font-size: clamp(1.5rem, 4.5vw, 2.2rem);
+      color: transparent;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+              background-clip: text;
+    }
+
+    /* ---------- 작품 · 후기 (인스타 피드처럼) ---------- */
+    .works-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; margin-top: 32px; border: var(--border); border-radius: var(--radius); overflow: hidden; background: var(--ink); box-shadow: var(--pop); }
+    .works-grid img { width: 100%; aspect-ratio: 1; object-fit: cover; transition: opacity 0.2s; }
+    .works-grid img:hover { opacity: 0.85; }
+    .review-empty {
+      margin-top: 40px;
+      padding: 36px 24px;
+      background: #fff;
+      border: var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--pop);
+      text-align: center;
+    }
+    .review-empty h3 { font-size: 1.7rem; }
+    .review-empty p { color: var(--muted); max-width: 32em; margin: 0 auto 22px; }
+    .review-empty .btn-small { background: var(--gradient); color: #fff; }
+
+    /* ---------- 공방 소개 ---------- */
+    .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; align-items: center; }
+    .teacher-line { font-weight: 800; display: inline-block; background: linear-gradient(transparent 60%, var(--yellow) 60%); }
+    .about-photos { display: grid; grid-template-columns: 1.2fr 1fr; gap: 16px; align-items: end; }
+    .about-photos img { width: 100%; border: var(--border); border-radius: var(--radius); box-shadow: var(--pop); }
+    .about-photos img:first-child { transform: rotate(-2deg); }
+    .about-photos img:last-child { transform: rotate(2deg); }
+    .feature-list { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 26px 0 0; }
+    .feature-list li { background: #fff; border: var(--border); border-radius: 18px; padding: 18px; display: flex; flex-direction: column; gap: 4px; }
+    .feature-list li:nth-child(1) { background: var(--peach); }
+    .feature-list li:nth-child(2) { background: var(--lilac); }
+    .feature-list li:nth-child(3) { background: #d8f5e4; }
+    .feature-list li:nth-child(4) { background: #fff3b8; }
+    .feature-list strong { font-size: 1.05rem; }
+    .feature-list span { font-size: 0.92rem; color: var(--muted); line-height: 1.55; }
+
+    /* ---------- 자주 묻는 질문 ---------- */
+    .faq-list { margin-top: 28px; }
+    .faq-list details { background: #fff; border: var(--border); border-radius: 18px; margin-bottom: 12px; box-shadow: 3px 3px 0 var(--ink); }
+    .faq-list details[open] { box-shadow: 5px 5px 0 var(--pink); }
+    .faq-list summary { cursor: pointer; padding: 16px 56px 16px 20px; font-weight: 800; list-style: none; position: relative; }
+    .faq-list summary::-webkit-details-marker { display: none; }
+    .faq-list summary::after {
+      content: "+";
+      position: absolute;
+      right: 14px; top: 50%;
+      transform: translateY(-50%);
+      display: grid; place-items: center;
+      width: 30px; height: 30px;
+      border: 2px solid var(--ink);
+      border-radius: 50%;
+      background: var(--yellow);
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+    .faq-list details[open] summary::after { content: "−"; background: var(--pink); color: #fff; }
+    .faq-list details p { margin: 0; padding: 0 20px 18px; color: var(--muted); font-size: 0.95rem; }
+
+    /* ---------- 예약 · 문의 ---------- */
+    #contact { background: var(--ink); color: #fff; }
+    #contact h2 { color: #fff; }
+    #contact .section-label { background: var(--yellow); color: var(--ink); }
+    #contact .section-intro { color: rgba(255, 255, 255, 0.75); }
+    .booking-steps { list-style: none; margin: 0 0 28px; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; counter-reset: booking; }
+    .booking-steps li { counter-increment: booking; background: rgba(255, 255, 255, 0.08); border: 2px solid rgba(255, 255, 255, 0.35); border-radius: var(--radius); padding: 20px; display: flex; flex-direction: column; gap: 4px; }
+    .booking-steps strong::before {
+      content: counter(booking);
+      display: inline-grid; place-items: center;
+      width: 1.8em; height: 1.8em;
+      margin-right: 8px;
+      border-radius: 50%;
+      background: var(--gradient);
+      color: #fff;
+      font-size: 0.85rem;
+    }
+    .booking-steps span { font-size: 0.92rem; color: rgba(255, 255, 255, 0.7); line-height: 1.55; }
+    .booking-box { background: #fff; color: var(--ink); border: 3px solid #fff; border-radius: 28px; padding: 36px 24px; text-align: center; box-shadow: 8px 8px 0 var(--pink); }
+    .booking-example-label { margin: 0 0 8px; font-size: 0.88rem; color: var(--muted); }
+    .booking-example {   /* DM 말풍선 */
+      display: inline-block;
+      margin: 0 0 26px;
+      padding: 12px 20px;
+      background: var(--gradient);
+      color: #fff;
+      border-radius: 22px 22px 6px 22px;
+      font-weight: 700;
+    }
+    .contact-alt { margin: 22px 0 0; font-size: 0.9rem; color: var(--muted); display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 10px; }
+    .contact-alt a { color: var(--ink); font-weight: 700; }
+    .contact-alt a:hover { color: var(--pink); }
+
+    /* ---------- 오시는 길 ---------- */
+    .location-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 48px; align-items: start; }
+    .location-list { margin: 0 0 24px; background: #fff; border: var(--border); border-radius: var(--radius); padding: 4px 20px; box-shadow: var(--pop); }
+    .location-list div { display: grid; grid-template-columns: 72px 1fr; gap: 12px; padding: 12px 0; border-bottom: 2px dashed rgba(21, 18, 20, 0.2); }
+    .location-list div:last-child { border-bottom: 0; }
+    .location-list dt { font-weight: 800; color: var(--pink); }
+    .location-list dd { margin: 0; }
+    .location-tip { font-weight: 700; }
+    .map-links { display: flex; flex-wrap: wrap; gap: 12px; }
+    .map-links .btn-small { background: #fff; }
+    .location-media { display: grid; gap: 18px; }
+    .entrance-photo { width: 100%; border: var(--border); border-radius: var(--radius); box-shadow: var(--pop); }
+    .map-frame iframe { width: 100%; aspect-ratio: 4 / 3; border: var(--border); border-radius: var(--radius); background: #fff; }
+    .map-note { font-size: 0.85rem; color: var(--muted); margin-top: 8px; }
+
+    /* ---------- 푸터 ---------- */
+    .site-footer { background: var(--ink); color: rgba(255, 255, 255, 0.75); padding: 48px 0; font-size: 0.9rem; position: relative; }
+    .site-footer::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: var(--gradient); }
+    .site-footer .logo { color: #fff; margin-bottom: 10px; }
+    .site-footer .logo::before { background: radial-gradient(circle, var(--ink) 0 52%, transparent 53%), var(--gradient); border-color: #fff; }
+    .site-footer p { margin: 0 0 4px; }
+    .footer-links { display: flex; gap: 16px; margin-top: 10px !important; }
+    .footer-links a { color: var(--yellow); font-weight: 700; }
+    .copyright { opacity: 0.6; margin-top: 12px !important; }
+
+    /* ---------- 휴대폰 하단 고정 예약 버튼 ---------- */
+    .mobile-cta { display: none; }
+
+    /* ---------- 태블릿 ---------- */
+    @media (max-width: 900px) {
+      .hero-inner, .about-grid, .location-grid { grid-template-columns: 1fr; gap: 40px; }
+      .class-grid { grid-template-columns: 1fr 1fr; gap: 28px 24px; }
+      .class-card-featured { grid-column: 1 / -1; grid-row: 1; transform: none; }
+    }
+
+    /* ---------- 휴대폰 ---------- */
+    @media (max-width: 720px) {
+      .nav-toggle { display: block; }
+      .site-nav {
+        position: absolute; top: var(--header-h); left: 0; right: 0;
+        flex-direction: column; align-items: stretch; gap: 0;
+        background: var(--cream); border-bottom: var(--border);
+        padding: 8px 20px 18px;
+        display: none;
+      }
+      .site-nav.is-open { display: flex; }
+      .site-nav a { padding: 14px 4px; border-bottom: 2px solid rgba(21, 18, 20, 0.1); font-size: 1.05rem; }
+      .site-nav .nav-cta { margin-top: 14px; text-align: center; }
+
+      .hero-photo img { transform: rotate(1.5deg); }
+      .class-grid { grid-template-columns: 1fr; }
+      .class-card-featured { grid-column: auto; }
+      .class-guide { border-radius: var(--radius); }
+      .hero-actions .btn { flex: 1; text-align: center; white-space: nowrap; padding-left: 1em; padding-right: 1em; }
+      .moment-grid { grid-template-columns: 1fr; gap: 28px; }
+      .step-list { grid-template-columns: 1fr 1fr; gap: 32px 16px; }
+      .step-list li::before { font-size: 2rem; }
+      .works-grid { gap: 3px; }
+      .booking-steps { grid-template-columns: 1fr; }
+      .btn-large { display: block; padding: 0.9em 1em; font-size: 1.05rem; }
+
+      body { padding-bottom: 88px; }
+      .mobile-cta {
+        position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
+        display: flex; flex-direction: column; align-items: stretch; gap: 4px;
+        padding: 10px 16px calc(8px + env(safe-area-inset-bottom));
+        background: var(--cream);
+        border-top: var(--border);
+        text-align: center;
+      }
+      .mobile-cta .btn { box-shadow: 3px 3px 0 var(--ink); }
+      .mobile-cta span { font-size: 0.78rem; color: var(--muted); line-height: 1.4; font-weight: 700; }
+    }
+
+    @media (max-width: 420px) {
+      .feature-list { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="logo">흙담 공방</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="메뉴 열기">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="site-nav" class="site-nav">
+        <a href="#classes">클래스</a>
+        <a href="#steps">진행 방식</a>
+        <a href="#works">작품</a>
+        <a href="#location">오시는 길</a>
+        <!-- TODO: 실제 카카오톡 채널 주소로 바꿔 주세요 (이 파일의 pf.kakao.com 링크 모두) -->
+        <a href="https://pf.kakao.com/" class="nav-cta" target="_blank" rel="noopener">카톡 예약</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- 히어로 -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <p class="eyebrow">망원역 7분 · 원데이 도자기 클래스</p>
+          <h1>퇴근 후 두 시간,<br>손으로 빚는 나만의 컵</h1>
+          <p class="hero-lead">처음이어도 괜찮아요. 선생님이 옆에서 하나하나 알려 드려요. 재료비와 굽는 비용까지 모두 포함이에요.</p>
+          <div class="hero-actions">
+            <a href="https://pf.kakao.com/" class="btn btn-primary" target="_blank" rel="noopener">카톡으로 예약 문의</a>
+            <a href="#classes" class="btn btn-ghost">클래스·가격 보기</a>
+          </div>
+          <p class="hero-facts">평일 저녁반 화–금 19:30 · 정원 최대 6명 · 예약금 없음</p>
+        </div>
+        <picture class="hero-photo">
+          <source media="(max-width: 720px)" srcset="images/hero-mobile.svg">
+          <img src="images/hero-wide.svg" alt="흙 묻은 두 손이 물레 위에서 컵을 세우는 모습" width="1600" height="900">
+        </picture>
+      </div>
+    </section>
+
+    <!-- 이런 하루를 보내요 -->
+    <section class="section">
+      <div class="container">
+        <p class="section-label">Your Day</p>
+        <h2>누구와 와도, 혼자 와도 좋은 두 시간</h2>
+        <div class="moment-grid">
+          <article class="moment-card">
+            <img src="images/moment-couple.svg" alt="나란히 앉아 흙을 빚는 커플" width="1000" height="1000" loading="lazy">
+            <h3>둘이서 데이트</h3>
+            <p>서로의 컵을 만들어 선물해 보세요. 4주 뒤 한 번 더 설레는 데이트가 돼요.</p>
+          </article>
+          <article class="moment-card">
+            <img src="images/moment-solo.svg" alt="혼자 흙을 빚는 데 집중하는 손님의 손" width="1000" height="1000" loading="lazy">
+            <h3>퇴근 후 나만의 시간</h3>
+            <p>휴대폰은 잠시 내려놓고, 손끝에만 집중하는 저녁. 평일 저녁반은 화–금 19:30에 시작해요.</p>
+          </article>
+          <article class="moment-card">
+            <img src="images/moment-friends.svg" alt="웃으며 함께 작업하는 친구들" width="1000" height="1000" loading="lazy">
+            <h3>친구와 특별한 주말</h3>
+            <p>망원시장 구경하고, 한강 가기 전에 들르기 좋아요.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 원데이 클래스 -->
+    <section id="classes" class="section section-tinted">
+      <div class="container">
+        <p class="section-label">One-day Class</p>
+        <h2>나에게 맞는 클래스 고르기</h2>
+        <p class="section-intro">모든 클래스는 예약제예요. 흙, 도구, 유약, 굽는 비용이 모두 포함되어 있고 예약금은 받지 않아요.</p>
+
+        <div class="class-grid">
+          <article class="class-card">
+            <img class="class-photo" src="images/class-handbuilding.svg" alt="손으로 빚은 컵과 접시" width="1200" height="900" loading="lazy">
+            <div class="class-body">
+              <p class="class-tag">입문 추천</p>
+              <h3>핸드빌딩 클래스</h3>
+              <p class="class-desc">손으로 흙을 주무르고 말아 올려 컵, 접시, 작은 화분을 만들어요. 물레가 처음이라 부담스럽다면 여기서 시작하세요.</p>
+              <dl class="class-meta">
+                <div><dt>소요 시간</dt><dd>약 2시간</dd></div>
+                <div><dt>정원</dt><dd>최대 6명</dd></div>
+                <div><dt>결과물</dt><dd>1~2점</dd></div>
+              </dl>
+              <p class="class-price">1인 50,000원</p>
+              <a class="btn btn-ghost btn-block" href="https://pf.kakao.com/" target="_blank" rel="noopener">이 클래스 예약 문의</a>
+            </div>
+          </article>
+
+          <article class="class-card class-card-featured">
+            <img class="class-photo" src="images/class-couple.svg" alt="둘이 함께 만든 커플 머그 한 쌍" width="1200" height="900" loading="lazy">
+            <div class="class-body">
+              <p class="class-tag">둘이 함께</p>
+              <h3>커플 · 친구 클래스</h3>
+              <p class="class-desc">두 분만을 위한 프라이빗 시간. 서로의 컵을 만들어 주거나, 커플 머그를 함께 빚어 보세요.</p>
+              <dl class="class-meta">
+                <div><dt>소요 시간</dt><dd>약 2시간 30분</dd></div>
+                <div><dt>정원</dt><dd>2명 (단독)</dd></div>
+                <div><dt>결과물</dt><dd>1인 2점</dd></div>
+              </dl>
+              <p class="class-price">2인 120,000원</p>
+              <p class="class-price-note">1인 60,000원 꼴 · 두 분만 쓰는 프라이빗 수업</p>
+              <a class="btn btn-primary btn-block" href="https://pf.kakao.com/" target="_blank" rel="noopener">이 클래스 예약 문의</a>
+            </div>
+          </article>
+
+          <article class="class-card">
+            <img class="class-photo" src="images/class-wheel.svg" alt="물레로 만든 그릇" width="1200" height="900" loading="lazy">
+            <div class="class-body">
+              <p class="class-tag">가장 인기</p>
+              <h3>물레 체험 클래스</h3>
+              <p class="class-desc">돌아가는 물레 위에서 흙을 세워 올리는 경험. 선생님과 함께 여러 번 연습하고 마음에 드는 작품을 골라 구워 드려요.</p>
+              <dl class="class-meta">
+                <div><dt>소요 시간</dt><dd>약 2시간 30분</dd></div>
+                <div><dt>정원</dt><dd>최대 4명</dd></div>
+                <div><dt>결과물</dt><dd>2점</dd></div>
+              </dl>
+              <p class="class-price">1인 65,000원</p>
+              <a class="btn btn-ghost btn-block" href="https://pf.kakao.com/" target="_blank" rel="noopener">이 클래스 예약 문의</a>
+            </div>
+          </article>
+        </div>
+
+        <p class="class-guide">어떤 걸 할지 모르겠다면? 처음이라면 <strong>핸드빌딩</strong>, 영상에서 보던 그 장면을 해 보고 싶다면 <strong>물레</strong>를 추천해요.</p>
+      </div>
+    </section>
+
+    <!-- 진행 방식 -->
+    <section id="steps" class="section">
+      <div class="container">
+        <p class="section-label">How it works</p>
+        <h2>처음 오셔도 이렇게 진행돼요</h2>
+        <ol class="step-list">
+          <li>
+            <img src="images/step-1.svg" alt="앞치마와 도구, 따뜻한 차" width="1000" height="1000" loading="lazy">
+            <strong>도착</strong>
+            <span>앞치마를 입고 따뜻한 차 한 잔</span>
+          </li>
+          <li>
+            <img src="images/step-2.svg" alt="선생님이 시범을 보이는 모습" width="1000" height="1000" loading="lazy">
+            <strong>시범</strong>
+            <span>선생님이 먼저 천천히 보여 드려요</span>
+          </li>
+          <li>
+            <img src="images/step-3.svg" alt="손님이 흙을 빚는 모습" width="1000" height="1000" loading="lazy">
+            <strong>만들기</strong>
+            <span>모양이 무너져도 괜찮아요, 선생님이 옆에서 잡아 드려요</span>
+          </li>
+          <li>
+            <img src="images/step-4.svg" alt="이니셜을 새기고 유약 색을 고르는 모습" width="1000" height="1000" loading="lazy">
+            <strong>꾸미기</strong>
+            <span>이니셜을 새기고 유약 색을 골라요</span>
+          </li>
+          <li>
+            <img src="images/step-5.svg" alt="작품과 함께 기념 사진을 찍는 자리" width="1000" height="1000" loading="lazy">
+            <strong>기념 사진</strong>
+            <span>사진 찍기 좋은 자리에서 내 작품과 한 장</span>
+          </li>
+          <li>
+            <img src="images/step-6.svg" alt="가마에서 구워져 나온 완성 그릇" width="1000" height="1000" loading="lazy">
+            <strong>4주 뒤 받기</strong>
+            <span>가마에서 구운 진짜 그릇이 완성돼요 (방문 수령 또는 택배)</span>
+          </li>
+        </ol>
+        <p class="step-note">한 달 뒤에 도착하는, 나에게 주는 선물</p>
+      </div>
+    </section>
+
+    <!-- 작품 · 후기 -->
+    <section id="works" class="section section-tinted">
+      <div class="container">
+        <p class="section-label">Works</p>
+        <h2>다녀가신 분들이 만든 그릇</h2>
+        <div class="works-grid">
+          <img src="images/work-1.svg" alt="손님 작품 사진 자리" width="1000" height="1000" loading="lazy">
+          <img src="images/work-2.svg" alt="손님 작품 사진 자리" width="1000" height="1000" loading="lazy">
+          <img src="images/work-3.svg" alt="손님 작품 사진 자리" width="1000" height="1000" loading="lazy">
+          <img src="images/work-4.svg" alt="손님 작품 사진 자리" width="1000" height="1000" loading="lazy">
+          <img src="images/work-5.svg" alt="손님 작품 사진 자리" width="1000" height="1000" loading="lazy">
+          <img src="images/work-6.svg" alt="손님 작품 사진 자리" width="1000" height="1000" loading="lazy">
+        </div>
+        <!-- TODO: 손님 동의를 받은 실제 후기가 생기면 이 상자를 후기 카드로 바꿔 주세요 -->
+        <div class="review-empty">
+          <h3>첫 손님을 기다려요</h3>
+          <p>이 자리는 흙담 공방에 다녀가신 분들의 이야기로 채워질 거예요. 첫 번째 주인공이 되어 주세요.</p>
+          <a class="btn btn-small" href="https://www.instagram.com/" target="_blank" rel="noopener">인스타그램에서 작품 더 보기</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 공방 소개 -->
+    <section id="about" class="section">
+      <div class="container about-grid">
+        <div>
+          <p class="section-label">About</p>
+          <h2>골목 안, 흙 냄새 나는 작은 작업실</h2>
+          <p>흙담 공방은 망원동 주택가 골목에 자리한 작은 도자기 공방이에요. 한 클래스에 최대 6명까지만 모셔서, 한 분 한 분 손 모양을 보며 천천히 알려 드립니다. 완성된 작품은 공방에서 직접 유약을 바르고 가마에 구워, 매일 써도 안전한 그릇으로 돌려드려요.</p>
+          <!-- TODO: 실제 선생님 소개로 바꿔 주세요 (이름, 도예 경력 등) -->
+          <p class="teacher-line">도예를 오래 해 온 흙담 공방 선생님이 직접 알려 드려요.</p>
+          <ul class="feature-list">
+            <li>
+              <strong>소수 정원</strong>
+              <span>클래스당 최대 6명, 꼼꼼한 1:1 지도</span>
+            </li>
+            <li>
+              <strong>초보 환영</strong>
+              <span>흙을 처음 만져 보는 분도 완성까지</span>
+            </li>
+            <li>
+              <strong>재료·소성 포함</strong>
+              <span>흙, 도구, 유약, 가마 소성까지 모두 포함</span>
+            </li>
+            <li>
+              <strong>앞치마 제공</strong>
+              <span>편한 옷차림으로 가볍게 오세요</span>
+            </li>
+          </ul>
+        </div>
+        <div class="about-photos">
+          <img src="images/studio.svg" alt="그릇이 놓인 선반과 작업대가 있는 공방 내부" width="1200" height="900" loading="lazy">
+          <img src="images/teacher.svg" alt="작업 중인 선생님" width="1000" height="1250" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- 자주 묻는 질문 -->
+    <section id="faq" class="section section-tinted">
+      <div class="container container-narrow">
+        <p class="section-label">FAQ</p>
+        <h2>자주 묻는 질문</h2>
+        <div class="faq-list">
+          <details>
+            <summary>손재주가 없는데 괜찮을까요?</summary>
+            <p>대부분 처음 오세요. 선생님이 끝까지 옆에서 도와 드려서 누구나 완성할 수 있어요.</p>
+          </details>
+          <details>
+            <summary>혼자 가도 되나요?</summary>
+            <p>물론이에요. 혼자 오셔서 조용히 집중하다 가시는 분도 많아요.</p>
+          </details>
+          <details>
+            <summary>평일 저녁에도 수업이 있나요?</summary>
+            <p>네, 평일 저녁반은 <strong>화–금 19:30–21:30</strong>이에요. 퇴근 후에 편하게 오세요.</p>
+          </details>
+          <details>
+            <summary>예약금이 있나요?</summary>
+            <p>예약금은 받지 않아요. 카카오톡으로 클래스·날짜·인원만 알려 주시면 예약이 끝나요.</p>
+          </details>
+          <details>
+            <summary>무슨 옷을 입고 가야 하나요?</summary>
+            <p>앞치마를 드려요. 흙이 묻어도 괜찮은 편한 옷이면 좋아요. 손톱이 길면 작업이 어려울 수 있어요.</p>
+          </details>
+          <details>
+            <summary>작품은 언제 받을 수 있나요?</summary>
+            <p>말리고 두 번 굽는 데 <strong>약 4주</strong>가 걸려요. 공방에서 찾아가시거나 택배(착불)로 받으실 수 있어요.</p>
+          </details>
+          <details>
+            <summary>예약을 바꾸거나 취소하고 싶어요.</summary>
+            <p>수업 <strong>2일 전까지</strong> 연락 주세요. 그 뒤에는 변경과 환불이 어려워요.</p>
+          </details>
+          <details>
+            <summary>주차할 수 있나요?</summary>
+            <p>공방 전용 주차 공간이 없어요. 6호선 망원역 2번 출구에서 걸어서 7분 정도예요.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 예약 · 문의 -->
+    <section id="contact" class="section">
+      <div class="container">
+        <p class="section-label">Booking</p>
+        <h2>카톡 한 번이면 예약 끝</h2>
+        <p class="section-intro">예약금 없이, 카카오톡으로 편하게 문의해 주세요.</p>
+
+        <ol class="booking-steps">
+          <li><strong>카톡으로 보내기</strong><span>원하는 클래스 · 날짜 · 인원을 보내 주세요</span></li>
+          <li><strong>시간 안내</strong><span>가능한 시간을 보통 하루 안에 알려 드려요</span></li>
+          <li><strong>예약 확정</strong><span>편한 옷차림으로 오시면 돼요</span></li>
+        </ol>
+
+        <div class="booking-box">
+          <p class="booking-example-label">이렇게 보내 주시면 돼요</p>
+          <p class="booking-example">커플 클래스 / 10월 18일(토) 오후 / 2명 예약 문의드려요!</p>
+          <a class="btn btn-primary btn-large" href="https://pf.kakao.com/" target="_blank" rel="noopener">카카오톡 채널로 문의하기</a>
+          <!-- TODO: 실제 연락처와 링크로 바꿔 주세요 -->
+          <p class="contact-alt">
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener">인스타그램 DM @heukdam.studio</a>
+            <span aria-hidden="true">·</span>
+            <a href="tel:010-0000-0000">전화 010-0000-0000</a>
+            <span aria-hidden="true">·</span>
+            <a href="mailto:hello@heukdam.kr">단체·기업 문의 hello@heukdam.kr</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 오시는 길 -->
+    <section id="location" class="section section-tinted">
+      <div class="container location-grid">
+        <div>
+          <p class="section-label">Location</p>
+          <h2>오시는 길</h2>
+          <dl class="location-list">
+            <div>
+              <dt>주소</dt>
+              <!-- TODO: 실제 상세 주소로 바꿔 주세요 -->
+              <dd>서울특별시 마포구 망원동 OO길 00, 1층</dd>
+            </div>
+            <div>
+              <dt>지하철</dt>
+              <dd>6호선 <strong>망원역</strong> 2번 출구에서 도보 약 7분</dd>
+            </div>
+            <div>
+              <dt>버스</dt>
+              <dd>망원역 정류장 하차 후 도보 이동</dd>
+            </div>
+            <div>
+              <dt>주차</dt>
+              <dd>공방 전용 주차 공간이 없어요. 대중교통 이용을 권해 드려요.</dd>
+            </div>
+            <div>
+              <dt>운영</dt>
+              <dd>화–일 11:00–20:00 · 평일 저녁반 화–금 19:30–21:30 · 월요일 휴무</dd>
+            </div>
+          </dl>
+          <p class="location-tip">수업 후엔 망원시장 구경이나 망원한강공원 산책을 함께 즐겨 보세요.</p>
+          <div class="map-links">
+            <a class="btn btn-small" href="https://map.naver.com/p/search/%EB%A7%9D%EC%9B%90%EC%97%AD" target="_blank" rel="noopener">네이버 지도</a>
+            <a class="btn btn-small" href="https://map.kakao.com/?q=%EB%A7%9D%EC%9B%90%EC%97%AD" target="_blank" rel="noopener">카카오맵</a>
+          </div>
+        </div>
+        <div class="location-media">
+          <img class="entrance-photo" src="images/entrance.svg" alt="골목에서 보이는 흙담 공방 입구와 간판" width="1200" height="900" loading="lazy">
+          <div class="map-frame">
+            <iframe
+              title="흙담 공방 위치 (망원역 주변 지도)"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=126.8986%2C37.5528%2C126.9146%2C37.5608&amp;layer=mapnik&amp;marker=37.5568%2C126.9066"
+              loading="lazy"></iframe>
+            <p class="map-note">지도는 망원역 주변을 표시합니다. 망원시장과 망원한강공원 사이 골목에 있어요.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="logo">흙담 공방</p>
+      <p>서울 마포구 망원동 · 화–일 11:00–20:00 · 평일 저녁반 화–금 19:30–21:30 · 월요일 휴무</p>
+      <p class="footer-links">
+        <a href="https://pf.kakao.com/" target="_blank" rel="noopener">카카오톡 채널</a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener">인스타그램</a>
+      </p>
+      <p class="copyright">© 2026 흙담 공방</p>
+    </div>
+  </footer>
+
+  <!-- 휴대폰 하단 고정 예약 버튼 -->
+  <div class="mobile-cta">
+    <a href="https://pf.kakao.com/" class="btn btn-primary" target="_blank" rel="noopener">카톡으로 예약 문의</a>
+    <span>보통 하루 안에 답장 드려요</span>
+  </div>
+
+  <script>
+    // 모바일 메뉴 열고 닫기
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('site-nav');
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', open);
+      toggle.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
+    });
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', false);
+        toggle.setAttribute('aria-label', '메뉴 열기');
+      });
+    });
+  </script>
+</body>
+</html>
