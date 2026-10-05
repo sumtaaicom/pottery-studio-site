@@ -329,6 +329,39 @@ img { display: block; max-width: 100%; height: auto; }
 .contact-alt a { color: var(--muted); }
 .contact-alt a:hover { color: var(--clay-dark); }
 
+/* 홈페이지 문의 폼 (카톡 상자 아래) */
+.inquiry-box { max-width: 760px; margin: 32px auto 0; background: #fff; border-radius: 28px; padding: 36px 32px; box-shadow: var(--shadow); }
+.inquiry-box h3 { text-align: center; color: var(--clay-dark); }
+.inquiry-intro { text-align: center; color: var(--muted); font-size: 0.95rem; margin-bottom: 24px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 18px; }
+.form-field { display: flex; flex-direction: column; gap: 6px; }
+.form-field-wide { grid-column: 1 / -1; }
+.form-field label { font-weight: 700; font-size: 0.95rem; }
+.form-optional { font-weight: 400; color: var(--muted); }
+.form-field input, .form-field select, .form-field textarea {
+  width: 100%;
+  font: inherit;
+  font-size: 1rem;              /* 16px보다 작으면 아이폰에서 칸을 누를 때 화면이 확대돼요 */
+  color: var(--ink);
+  background: var(--cream);
+  border: 2px solid var(--line);
+  border-radius: 14px;
+  padding: 0.65em 0.9em;
+}
+.form-field textarea { resize: vertical; line-height: 1.6; }
+.form-field input:focus, .form-field select:focus, .form-field textarea:focus { outline: none; border-color: var(--clay); background: #fff; }
+.form-trap { display: none; }
+.form-consent { display: flex; align-items: flex-start; gap: 10px; margin: 22px 0 24px; font-size: 0.92rem; color: var(--muted); cursor: pointer; }
+.form-consent input { width: 1.2em; height: 1.2em; margin: 0.3em 0 0; flex-shrink: 0; accent-color: var(--clay); }
+.inquiry-form .btn { display: block; width: 100%; font-family: inherit; cursor: pointer; }
+.inquiry-form .btn:disabled { opacity: 0.7; cursor: wait; transform: none; }
+.form-status { margin: 14px 0 0; text-align: center; font-weight: 700; color: var(--clay-dark); }
+.form-status:empty { display: none; }
+.inquiry-done { text-align: center; padding: 28px 16px; background: var(--sage-soft); border-radius: var(--radius); }
+.inquiry-done:focus { outline: none; }
+.inquiry-done h3 { color: #4f5e3c; }
+.inquiry-done p { margin: 0; color: var(--muted); }
+
 /* ---------- 오시는 길 ---------- */
 .location-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 48px; align-items: start; }
 .location-list { margin: 0 0 24px; background: #fff; border-radius: var(--radius); padding: 6px 22px; }
@@ -387,6 +420,8 @@ img { display: block; max-width: 100%; height: auto; }
   .works-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
   .booking-steps { grid-template-columns: 1fr; }
   .btn-large { display: block; padding: 0.9em 1em; font-size: 1.05rem; }
+  .inquiry-box { padding: 28px 18px; }
+  .form-grid { grid-template-columns: 1fr; }
 
   body { padding-bottom: 84px; }
   .mobile-cta {

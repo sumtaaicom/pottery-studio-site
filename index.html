@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>망원동 도자기 원데이 클래스 · 흙담 공방 (망원역 7분)</title>
-  <meta name="description" content="망원역 7분, 망원동 도자기 공방 흙담 공방의 원데이 클래스. 핸드빌딩·물레·도자기 페인팅·커플 클래스, 처음이어도 두 시간이면 나만의 컵이 완성돼요. 평일 저녁반(화–금 19:30), 예약금 없이 카카오톡으로 예약하세요.">
+  <meta name="description" content="망원역 7분, 망원동 도자기 공방 흙담 공방의 원데이 클래스. 핸드빌딩·물레·도자기 페인팅·커플 클래스, 처음이어도 두 시간이면 나만의 컵이 완성돼요. 평일 저녁반(화–금 19:30), 예약금 없이 카카오톡이나 홈페이지 문의 폼으로 예약하세요.">
   <meta name="theme-color" content="#fffaf2">
 
   <!-- 검색엔진에 알려 주는 이 페이지의 대표 주소. 홈페이지 주소가 바뀌면 이 파일의 vercel.app 주소(5곳)와 robots.txt, sitemap.xml을 같이 바꿔 주세요 -->
@@ -384,6 +384,69 @@
             <a href="mailto:hello@heukdam.kr">단체·기업 문의 hello@heukdam.kr</a>
           </p>
         </div>
+
+        <!-- 홈페이지 문의 폼: 보낸 내용은 Web3Forms(폼 내용을 메일로 전달해 주는 무료 서비스)를 거쳐
+             Web3Forms에 가입한 메일 주소로 와요. access_key는 홈페이지에 공개해도 되는 키예요. -->
+        <div id="inquiry" class="inquiry-box">
+          <h3>카톡이 어려우면 여기에 남겨 주세요</h3>
+          <p class="inquiry-intro">남겨 주신 연락처로 가능한 시간을 보통 하루 안에 알려 드려요.</p>
+
+          <form class="inquiry-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="dbffddfc-3723-43cb-8b24-bad1556c410f">
+            <input type="hidden" name="subject" value="[흙담 공방] 홈페이지 예약 문의">
+            <input type="hidden" name="from_name" value="흙담 공방 홈페이지">
+            <!-- 스팸 막기: 사람에게는 안 보이는 칸이에요. 자동으로 글을 올리는 프로그램(스팸 봇)이 여기에 체크하면 Web3Forms가 걸러 내요 -->
+            <input type="checkbox" name="botcheck" class="form-trap" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="inq-name">이름</label>
+                <input id="inq-name" name="이름" type="text" autocomplete="name" required>
+              </div>
+              <div class="form-field">
+                <label for="inq-phone">연락처</label>
+                <input id="inq-phone" name="연락처" type="tel" inputmode="tel" autocomplete="tel" placeholder="010-0000-0000" required>
+              </div>
+              <div class="form-field form-field-wide">
+                <label for="inq-class">원하는 클래스</label>
+                <select id="inq-class" name="원하는 클래스" required>
+                  <option value="" disabled selected>클래스를 골라 주세요</option>
+                  <option>핸드빌딩 클래스</option>
+                  <option>커플 · 친구 클래스</option>
+                  <option>물레 체험 클래스</option>
+                  <option>도자기 페인팅 클래스</option>
+                  <option>아직 모르겠어요</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="inq-date">희망 날짜</label>
+                <input id="inq-date" name="희망 날짜" type="date" required>
+              </div>
+              <div class="form-field">
+                <label for="inq-people">인원</label>
+                <input id="inq-people" name="인원" type="number" inputmode="numeric" min="1" value="1" required>
+              </div>
+              <div class="form-field form-field-wide">
+                <label for="inq-message">하고 싶은 말 <span class="form-optional">(선택)</span></label>
+                <textarea id="inq-message" name="하고 싶은 말" rows="4" placeholder="원하는 시간대나 궁금한 점을 적어 주세요"></textarea>
+              </div>
+            </div>
+
+            <!-- TODO: 받은 문의를 얼마 동안 보관하는지 정해서 아래 문구에 넣어 주세요 (예: "문의 답변 후 ○개월 뒤 지워요") -->
+            <label class="form-consent">
+              <input type="checkbox" name="개인정보 수집 동의" value="동의함" required>
+              <span>예약 문의에 답하기 위해 이름과 연락처를 받는 것에 동의해요.</span>
+            </label>
+
+            <button type="submit" class="btn btn-primary btn-large">문의 남기기</button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </form>
+
+          <div class="inquiry-done" tabindex="-1" hidden>
+            <h3>문의가 접수됐어요</h3>
+            <p>남겨 주신 연락처로 보통 하루 안에 연락드릴게요.</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -470,6 +533,40 @@
         toggle.setAttribute('aria-expanded', false);
         toggle.setAttribute('aria-label', '메뉴 열기');
       });
+    });
+
+    // 예약 문의 폼: 페이지를 떠나지 않고 보내고, 보내지면 "문의가 접수됐어요"를 보여 줘요
+    const form = document.querySelector('.inquiry-form');
+    const formStatus = form.querySelector('.form-status');
+    const formDone = document.querySelector('.inquiry-done');
+    const submitBtn = form.querySelector('button[type="submit"]');
+
+    // 희망 날짜는 오늘부터 고를 수 있게
+    const today = new Date();
+    today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
+    form.querySelector('#inq-date').min = today.toISOString().slice(0, 10);
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.textContent = '보내는 중...';
+      formStatus.textContent = '';
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: new FormData(form)
+        });
+        const result = await res.json();
+        if (!result.success) throw new Error(result.message);
+        form.hidden = true;
+        formDone.hidden = false;
+        formDone.focus();
+      } catch (error) {
+        formStatus.textContent = '보내지 못했어요. 잠시 뒤 다시 보내 주시거나 카카오톡으로 문의해 주세요.';
+        submitBtn.disabled = false;
+        submitBtn.textContent = '문의 남기기';
+      }
     });
   </script>
 </body>
