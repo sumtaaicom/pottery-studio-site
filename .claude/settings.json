@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/check-site.py\"",
+            "timeout": 30,
+            "statusMessage": "index.html 링크·사진·alt 점검 중"
+          }
+        ]
+      }
+    ]
+  }
+}
