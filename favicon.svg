@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- 흙담 공방 로고 앞의 작은 항아리 모양. 색은 style.css의 --cream, --clay 값과 같아요 -->
+  <circle cx="32" cy="32" r="32" fill="#fffaf2"/>
+  <path d="M32 12c9 0 15 3.5 15 13 0 11-4 22-15 22S17 36 17 25c0-9.5 6-13 15-13z" fill="#b35f3b"/>
+</svg>

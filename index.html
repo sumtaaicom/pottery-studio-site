@@ -3,19 +3,69 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>흙담 공방 · 망원동 원데이 도자기 클래스</title>
-  <meta name="description" content="망원역 7분, 흙담 공방의 원데이 도자기 클래스. 처음이어도 두 시간이면 나만의 컵이 완성돼요. 평일 저녁반(화–금 19:30)과 커플 클래스 운영, 예약금 없이 카카오톡으로 예약하세요.">
+  <title>망원동 도자기 원데이 클래스 · 흙담 공방 (망원역 7분)</title>
+  <meta name="description" content="망원역 7분, 망원동 도자기 공방 흙담 공방의 원데이 클래스. 핸드빌딩·물레·도자기 페인팅·커플 클래스, 처음이어도 두 시간이면 나만의 컵이 완성돼요. 평일 저녁반(화–금 19:30), 예약금 없이 카카오톡으로 예약하세요.">
+  <meta name="theme-color" content="#fffaf2">
+
+  <!-- 검색엔진에 알려 주는 이 페이지의 대표 주소. 홈페이지 주소가 바뀌면 이 파일의 vercel.app 주소(5곳)와 robots.txt, sitemap.xml을 같이 바꿔 주세요 -->
+  <link rel="canonical" href="https://pottery-studio-site-mu.vercel.app/">
+  <!-- TODO: 네이버 서치어드바이저에서 받은 확인 코드를 content에 넣고 주석을 풀어 주세요 -->
+  <!-- <meta name="naver-site-verification" content="여기에-네이버-코드"> -->
+  <!-- TODO: 구글 서치 콘솔에서 받은 확인 코드를 content에 넣고 주석을 풀어 주세요 -->
+  <!-- <meta name="google-site-verification" content="여기에-구글-코드"> -->
+
+  <!-- 카카오톡·인스타그램 등으로 링크를 보낼 때 뜨는 미리보기 -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="흙담 공방 · 퇴근 후 두 시간, 손으로 빚는 나만의 컵">
-  <meta property="og:description" content="망원역 7분 원데이 도자기 클래스. 평일 저녁반 · 커플 클래스 · 재료와 굽는 비용 포함.">
-  <!-- TODO: 대표 사진(1200×630 JPG)을 images/og-image.jpg로 넣고 아래 주석을 풀어 주세요 -->
-  <!-- <meta property="og:image" content="images/og-image.jpg"> -->
+  <meta property="og:site_name" content="흙담 공방">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:url" content="https://pottery-studio-site-mu.vercel.app/">
+  <meta property="og:title" content="흙담 공방 · 망원동 원데이 도자기 클래스">
+  <meta property="og:description" content="퇴근 후 두 시간, 손으로 빚는 나만의 컵. 망원역 7분 · 평일 저녁반 · 커플 클래스 · 재료와 굽는 비용 포함.">
+  <meta property="og:image" content="https://pottery-studio-site-mu.vercel.app/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="흙 묻은 두 손이 물레 위에서 컵을 세우는 모습">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- 브라우저 탭과 검색 결과에 뜨는 작은 아이콘(파비콘) -->
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <!-- 검색엔진이 공방 정보를 정확히 읽도록 정리한 정보(구조화 데이터). 화면에는 보이지 않아요.
+       TODO: 실제 상세 주소와 전화번호가 정해지면 address에 "streetAddress", 그 아래에 "telephone"을 추가해 주세요 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "흙담 공방",
+    "description": "망원역 7분, 망원동 원데이 도자기 클래스. 핸드빌딩·물레·도자기 페인팅·커플 클래스를 예약제로 운영합니다.",
+    "url": "https://pottery-studio-site-mu.vercel.app/",
+    "image": "https://pottery-studio-site-mu.vercel.app/images/og-image.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "KR",
+      "addressRegion": "서울특별시",
+      "addressLocality": "마포구 망원동"
+    },
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "11:00",
+      "closes": "20:00"
+    }]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- 키보드로 이동하는 분이 메뉴를 건너뛰고 바로 본문으로 갈 수 있는 링크(Tab 키를 누르면 보여요) -->
+  <a class="skip-link" href="#top">본문으로 바로가기</a>
 
   <header class="site-header">
     <div class="container header-inner">
@@ -34,7 +84,7 @@
     </div>
   </header>
 
-  <main id="top">
+  <main id="top" tabindex="-1">
 
     <!-- 히어로 -->
     <section class="hero">
@@ -119,7 +169,7 @@
                 <div><dt>정원</dt><dd>2명 (단독)</dd></div>
                 <div><dt>결과물</dt><dd>1인 2점</dd></div>
               </dl>
-              <p class="class-price"><del>2인 120,000원</del> 2인 100,000원</p>
+              <p class="class-price"><del><span class="sr-only">원래 가격 </span>2인 120,000원</del> <span class="sr-only">할인 가격 </span>2인 100,000원</p>
               <p class="class-price-note"><strong>10월 31일까지 수업하는 경우만</strong> 할인돼요 · 1인 50,000원 꼴 · 두 분만 쓰는 프라이빗 수업</p>
               <a class="btn btn-primary btn-block" href="https://pf.kakao.com/" target="_blank" rel="noopener">이 클래스 예약 문의</a>
             </div>
@@ -400,10 +450,10 @@
   </footer>
 
   <!-- 휴대폰 하단 고정 예약 버튼 -->
-  <div class="mobile-cta">
+  <aside class="mobile-cta" aria-label="빠른 예약 문의">
     <a href="https://pf.kakao.com/" class="btn btn-primary" target="_blank" rel="noopener">카톡으로 예약 문의</a>
     <span>보통 하루 안에 답장 드려요</span>
-  </div>
+  </aside>
 
   <script>
     // 모바일 메뉴 열고 닫기

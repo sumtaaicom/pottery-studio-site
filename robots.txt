@@ -1,0 +1,5 @@
+# 검색엔진(구글, 네이버 등)이 홈페이지를 모두 읽어 가도 된다는 안내 파일
+User-agent: *
+Allow: /
+
+Sitemap: https://pottery-studio-site-mu.vercel.app/sitemap.xml
