@@ -41,12 +41,15 @@ p { margin: 0 0 1em; }
 
 a { color: var(--clay-dark); }
 
+img { display: block; max-width: 100%; height: auto; }
+
 .container {
   width: 100%;
   max-width: 1080px;
   margin: 0 auto;
   padding: 0 20px;
 }
+.container-narrow { max-width: 760px; }
 
 /* ---------- 버튼 ---------- */
 .btn {
@@ -69,6 +72,8 @@ a { color: var(--clay-dark); }
   background: #fff;
 }
 .btn-small:hover { background: var(--clay); color: #fff; }
+.btn-block { display: block; text-align: center; }
+.btn-large { padding: 1em 2.4em; font-size: 1.1rem; }
 
 /* ---------- 헤더 ---------- */
 .site-header {
@@ -125,7 +130,19 @@ a { color: var(--clay-dark); }
     radial-gradient(circle at 85% 20%, rgba(181, 101, 63, 0.18), transparent 45%),
     radial-gradient(circle at 10% 90%, rgba(181, 101, 63, 0.12), transparent 40%),
     var(--sand);
-  padding: clamp(72px, 14vw, 140px) 0;
+  padding: clamp(48px, 9vw, 110px) 0;
+}
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.hero h1 { font-size: clamp(1.9rem, 5vw, 2.7rem); }
+.hero-photo img {
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: 0 18px 40px rgba(59, 47, 40, 0.12);
 }
 .eyebrow {
   color: var(--clay);
@@ -135,6 +152,18 @@ a { color: var(--clay-dark); }
 }
 .hero-lead { font-size: 1.1rem; color: var(--muted); max-width: 32em; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.hero-facts { margin: 18px 0 0; font-size: 0.9rem; color: var(--muted); }
+
+/* ---------- 이런 하루를 보내요 ---------- */
+.moment-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 32px;
+}
+.moment-card img { width: 100%; border-radius: var(--radius); margin-bottom: 16px; }
+.moment-card h3 { margin-bottom: 0.3em; }
+.moment-card p { color: var(--muted); font-size: 0.95rem; margin: 0; }
 
 /* ---------- 공통 섹션 ---------- */
 .section { padding: clamp(64px, 10vw, 110px) 0; }
@@ -156,6 +185,14 @@ a { color: var(--clay-dark); }
   gap: 56px;
   align-items: center;
 }
+.teacher-line { font-weight: 500; color: var(--clay-dark); }
+.about-photos {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 14px;
+  align-items: end;
+}
+.about-photos img { width: 100%; border-radius: var(--radius); }
 .feature-list {
   list-style: none;
   margin: 0;
@@ -163,6 +200,7 @@ a { color: var(--clay-dark); }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 14px;
+  margin-top: 24px;
 }
 .feature-list li {
   background: var(--sand);
@@ -185,9 +223,20 @@ a { color: var(--clay-dark); }
   background: #fff;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: 28px 24px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
+}
+.class-card-featured {
+  border: 2px solid var(--clay);
+  box-shadow: 0 14px 32px rgba(181, 101, 63, 0.15);
+}
+.class-photo { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.class-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 .class-tag {
   align-self: flex-start;
@@ -205,23 +254,88 @@ a { color: var(--clay-dark); }
 .class-meta dt { color: var(--muted); }
 .class-meta dd { margin: 0; font-weight: 500; }
 .class-price {
-  margin: auto 0 0;
+  margin: auto 0 16px;
   font-family: "Gowun Batang", serif;
   font-size: 1.3rem;
   font-weight: 700;
   color: var(--clay-dark);
 }
 
-.info-box {
-  margin-top: 32px;
-  background: #fff;
-  border-left: 4px solid var(--clay);
-  border-radius: var(--radius);
-  padding: 24px 28px;
+.class-price-note { margin: -12px 0 16px; font-size: 0.88rem; color: var(--muted); }
+.class-guide { margin: 28px 0 0; text-align: center; color: var(--muted); }
+
+/* ---------- 진행 방식 ---------- */
+.step-list {
+  list-style: none;
+  margin: 32px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px 24px;
+  counter-reset: step;
 }
-.info-box h3 { font-size: 1.05rem; }
-.info-box ul { margin: 0; padding-left: 1.2em; }
-.info-box li { margin-bottom: 6px; font-size: 0.95rem; }
+.step-list li { display: flex; flex-direction: column; gap: 4px; counter-increment: step; }
+.step-list img { width: 100%; border-radius: var(--radius); margin-bottom: 10px; }
+.step-list strong::before {
+  content: counter(step) ". ";
+  color: var(--clay);
+}
+.step-list strong { font-size: 1.05rem; }
+.step-list span { font-size: 0.92rem; color: var(--muted); line-height: 1.55; }
+.step-note {
+  margin: 40px 0 0;
+  text-align: center;
+  font-family: "Gowun Batang", serif;
+  font-size: clamp(1.15rem, 3.5vw, 1.45rem);
+  font-weight: 700;
+  color: var(--clay-dark);
+}
+
+/* ---------- 작품 · 후기 ---------- */
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 32px;
+}
+.works-grid img { width: 100%; border-radius: 10px; }
+.review-empty {
+  margin-top: 32px;
+  padding: 32px 24px;
+  background: #fff;
+  border: 1.5px dashed var(--line);
+  border-radius: var(--radius);
+  text-align: center;
+}
+.review-empty p { color: var(--muted); max-width: 32em; margin: 0 auto 20px; }
+
+/* ---------- 자주 묻는 질문 ---------- */
+.faq-list { margin-top: 28px; }
+.faq-list details {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  margin-bottom: 10px;
+}
+.faq-list summary {
+  cursor: pointer;
+  padding: 16px 48px 16px 20px;
+  font-weight: 500;
+  list-style: none;
+  position: relative;
+}
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary::after {
+  content: "+";
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.3rem;
+  color: var(--clay);
+}
+.faq-list details[open] summary::after { content: "−"; }
+.faq-list details p { margin: 0; padding: 0 20px 18px; color: var(--muted); font-size: 0.95rem; }
 
 /* ---------- 오시는 길 ---------- */
 .location-grid {
@@ -240,7 +354,10 @@ a { color: var(--clay-dark); }
 }
 .location-list dt { font-weight: 700; color: var(--clay-dark); }
 .location-list dd { margin: 0; }
+.location-tip { color: var(--muted); font-size: 0.95rem; }
 .map-links { display: flex; flex-wrap: wrap; gap: 10px; }
+.location-media { display: grid; gap: 16px; }
+.entrance-photo { width: 100%; border-radius: var(--radius); }
 .map-frame iframe {
   width: 100%;
   aspect-ratio: 4 / 3;
@@ -250,28 +367,65 @@ a { color: var(--clay-dark); }
 }
 .map-note { font-size: 0.85rem; color: var(--muted); margin-top: 8px; }
 
-/* ---------- 문의 ---------- */
-.contact-grid {
+/* ---------- 예약 · 문의 ---------- */
+.booking-steps {
+  list-style: none;
+  margin: 0 0 28px;
+  padding: 0;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
+  counter-reset: booking;
 }
-.contact-card {
+.booking-steps li {
+  counter-increment: booking;
+  background: var(--sand);
+  border-radius: var(--radius);
+  padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 4px;
-  padding: 24px 20px;
+}
+.booking-steps strong::before {
+  content: counter(booking);
+  display: inline-grid;
+  place-items: center;
+  width: 1.7em;
+  height: 1.7em;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: var(--clay);
+  color: #fff;
+  font-size: 0.85rem;
+}
+.booking-steps span { font-size: 0.92rem; color: var(--muted); line-height: 1.55; }
+.booking-box {
   background: #fff;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  color: var(--ink);
-  text-decoration: none;
-  transition: border-color 0.2s, transform 0.2s;
+  padding: 32px 24px;
+  text-align: center;
 }
-.contact-card:hover { border-color: var(--clay); transform: translateY(-2px); }
-.contact-icon { font-size: 1.6rem; }
-.contact-card strong { font-size: 1.05rem; }
-.contact-card span:last-child { font-size: 0.88rem; color: var(--muted); line-height: 1.5; }
+.booking-example-label { margin: 0 0 6px; font-size: 0.88rem; color: var(--muted); }
+.booking-example {
+  display: inline-block;
+  margin: 0 0 24px;
+  padding: 10px 18px;
+  background: var(--sand);
+  border-radius: 10px;
+  font-weight: 500;
+}
+.contact-alt {
+  margin: 20px 0 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 10px;
+}
+.contact-alt a { color: var(--muted); }
+.contact-alt a:hover { color: var(--clay-dark); }
 
 /* ---------- 푸터 ---------- */
 .site-footer {
@@ -282,13 +436,18 @@ a { color: var(--clay-dark); }
 }
 .site-footer .logo { color: #fff; margin-bottom: 8px; }
 .site-footer p { margin: 0 0 4px; }
+.footer-links { display: flex; gap: 16px; margin-top: 10px !important; }
+.footer-links a { color: #fff; }
+
+/* ---------- 휴대폰 하단 고정 예약 버튼 ---------- */
+.mobile-cta { display: none; }
 .copyright { opacity: 0.6; margin-top: 12px !important; }
 
 /* ---------- 태블릿 ---------- */
 @media (max-width: 900px) {
+  .hero-inner, .about-grid, .location-grid { grid-template-columns: 1fr; gap: 32px; }
   .class-grid { grid-template-columns: 1fr 1fr; }
-  .contact-grid { grid-template-columns: 1fr 1fr; }
-  .about-grid, .location-grid { grid-template-columns: 1fr; gap: 32px; }
+  .class-card-featured { grid-column: 1 / -1; grid-row: 1; }
 }
 
 /* ---------- 휴대폰 ---------- */
@@ -312,11 +471,33 @@ a { color: var(--clay-dark); }
   .site-nav .nav-cta { margin-top: 12px; text-align: center; border-bottom: 0; }
 
   .class-grid { grid-template-columns: 1fr; }
-  .hero-actions .btn { flex: 1; text-align: center; }
-  .info-box { padding: 20px; }
+  .class-card-featured { grid-column: auto; }
+  .hero-actions .btn { flex: 1; text-align: center; white-space: nowrap; }
+  .moment-grid { grid-template-columns: 1fr; }
+  .step-list { grid-template-columns: 1fr 1fr; gap: 20px 14px; }
+  .works-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .booking-steps { grid-template-columns: 1fr; }
+  .btn-large { display: block; padding: 0.9em 1em; font-size: 1.05rem; }
+
+  body { padding-bottom: 84px; }
+  .mobile-cta {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding: 10px 16px calc(8px + env(safe-area-inset-bottom));
+    background: rgba(255, 250, 244, 0.97);
+    border-top: 1px solid var(--line);
+    text-align: center;
+  }
+  .mobile-cta span { font-size: 0.78rem; color: var(--muted); line-height: 1.4; }
 }
 
 @media (max-width: 420px) {
   .feature-list { grid-template-columns: 1fr; }
-  .contact-grid { grid-template-columns: 1fr; }
 }

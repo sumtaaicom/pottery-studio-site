@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1500" viewBox="0 0 1200 1500">
+  <rect width="1200" height="1500" fill="#efe3d4"/>
+  <rect x="24" y="24" width="1152" height="1452" fill="none" stroke="#c9a88f" stroke-width="3" stroke-dasharray="14 10" rx="18"/>
+  <g font-family="Noto Sans KR, sans-serif" text-anchor="middle" fill="#8f4a2b">
+    <text x="600.0" y="710.4" font-size="66" font-weight="700">히어로 사진 (휴대폰용 세로)</text>
+    <text x="600.0" y="809.4" font-size="40" fill="#7a6a5f">흙 묻은 두 손 · 물레 위 컵</text>
+    <text x="600.0" y="888.6" font-size="33" fill="#a8968a">사진 자리 · hero-mobile · 1200×1500</text>
+  </g>
+</svg>

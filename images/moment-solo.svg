@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000">
+  <rect width="1000" height="1000" fill="#efe3d4"/>
+  <rect x="24" y="24" width="952" height="952" fill="none" stroke="#c9a88f" stroke-width="3" stroke-dasharray="14 10" rx="18"/>
+  <g font-family="Noto Sans KR, sans-serif" text-anchor="middle" fill="#8f4a2b">
+    <text x="500.0" y="467.0" font-size="55" font-weight="700">퇴근 후 나만의 시간</text>
+    <text x="500.0" y="549.5" font-size="33" fill="#7a6a5f">혼자 집중하는 손님의 손</text>
+    <text x="500.0" y="615.5" font-size="28" fill="#a8968a">사진 자리 · moment-solo · 1000×1000</text>
+  </g>
+</svg>
