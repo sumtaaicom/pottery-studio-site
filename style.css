@@ -192,12 +192,19 @@ img { display: block; max-width: 100%; height: auto; }
   margin-bottom: 14px;
 }
 .class-card-featured .class-tag { color: #fff; background: var(--clay); }
+/* 라벨이 두 개일 때 옆으로 나란히 (좁으면 다음 줄로) */
+.class-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.class-tags .class-tag { margin-bottom: 0; }
+/* 기간 한정 할인 표시: 옆 라벨보다 짙은 테라코타로 눈에 띄게 */
+.class-card-featured .class-tag-sale { background: var(--clay-dark); }
 .class-desc { color: var(--muted); font-size: 0.95rem; }
 .class-meta { margin: 0 0 20px; background: var(--cream); border-radius: 14px; padding: 12px 16px; }
 .class-meta div { display: flex; justify-content: space-between; font-size: 0.92rem; padding: 3px 0; }
 .class-meta dt { color: var(--muted); }
 .class-meta dd { margin: 0; font-weight: 700; }
 .class-price { margin: auto 0 16px; font-family: "Gowun Batang", serif; font-size: 1.35rem; font-weight: 700; color: var(--clay-dark); }
+/* 할인 전 원래 가격: 작고 흐리게, 가운데 줄 */
+.class-price del { font-size: 0.8em; font-weight: 400; color: var(--muted); margin-right: 0.3em; }
 .class-price-note { margin: -12px 0 16px; font-size: 0.88rem; color: var(--muted); }
 .class-guide { margin: 32px auto 0; max-width: 40em; text-align: center; color: var(--muted); background: #fff; padding: 16px 20px; border-radius: 999px; }
 
